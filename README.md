@@ -86,5 +86,10 @@ For any questions or feedback, feel free to reach out to:
 
 ---
 
+![dash](https://github.com/user-attachments/assets/72d14a92-6500-4129-8a1a-c4c0893a4444)
+![classes](https://github.com/user-attachments/assets/106d70d9-821d-4caf-8fc3-b0c5a5e97afa)
+![calendar](https://github.com/user-attachments/assets/3a73a9d7-9571-470f-9f5b-8e7380b80935)
+![teachers](https://github.com/user-attachments/assets/7ee0ccd1-bf9f-4695-9fc0-20bdf27bd243)
+![students](https://github.com/user-attachments/assets/878682ee-8a39-4a25-a749-12f24c3aca96)
 
 
