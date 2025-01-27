@@ -1,0 +1,228 @@
+<html>
+<head>
+    <title>Manage Teachers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function toggleAddTeacherForm() {
+            var form = document.getElementById("add-teacher-form");
+            form.classList.toggle("hidden");
+        }
+
+        function toggleEditTeacherForm() {
+            var form = document.getElementById("edit-teacher-form");
+            form.classList.toggle("hidden");
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white h-screen shadow-md">
+            <div class="p-6">
+                <h1 class="text-lg font-bold">School Management</h1>
+                <nav class="mt-6">
+                    <a href="index.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a>
+                    <a href="students.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-user-graduate mr-3"></i> Students
+                    </a>
+                    <a href="teachers.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chalkboard-teacher mr-3"></i> Teachers
+                    </a>
+                    <a href="classes.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-book mr-3"></i> Classes
+                    </a>
+                    <a href="calendar.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-calendar-alt mr-3"></i> Calendar
+                    </a>
+                    <a href="reports.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chart-line mr-3"></i> Reports
+                    </a>
+                    <a href="settings.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-cog mr-3"></i> Settings
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Manage Teachers</h1>
+                <button class="bg-red-600 text-white py-2 px-4 rounded-md">Logout</button>
+            </div>
+            <p class="text-gray-600">Manage teacher information and activities</p>
+
+            <!-- Add Teacher Button -->
+            <div class="mt-6">
+                <button onclick="toggleAddTeacherForm()" class="bg-blue-600 text-white py-2 px-4 rounded-md">Add Teacher</button>
+            </div>
+
+            <!-- Add Teacher Form -->
+            <div id="add-teacher-form" class="mt-6 bg-white p-6 rounded-lg shadow-md hidden">
+                <h2 class="text-2xl font-bold text-gray-900">Add Teacher</h2>
+                <form class="mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700">Name</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Subject</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Subject">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Qualifications</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Qualifications">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Contact</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Contact Information">
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Add Teacher</button>
+                </form>
+            </div>
+
+            <!-- Edit Teacher Form -->
+            <div id="edit-teacher-form" class="mt-6 bg-white p-6 rounded-lg shadow-md hidden">
+                <h2 class="text-2xl font-bold text-gray-900">Edit Teacher</h2>
+                <form class="mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700">Name</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Subject</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Subject">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Qualifications</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Qualifications">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Contact</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Contact Information">
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Update Teacher</button>
+                </form>
+            </div>
+
+            <!-- Content Section -->
+            <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+                <!-- Manage Teachers -->
+                <div id="manage-teachers" class="mb-6">
+                    <table class="min-w-full bg-white mt-4">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b">Name</th>
+                                <th class="py-2 px-4 border-b">Subject</th>
+                                <th class="py-2 px-4 border-b">Qualifications</th>
+                                <th class="py-2 px-4 border-b">Contact</th>
+                                <th class="py-2 px-4 border-b">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">Jane Smith</td>
+                                <td class="py-2 px-4 border-b">Mathematics</td>
+                                <td class="py-2 px-4 border-b">M.Sc. Mathematics</td>
+                                <td class="py-2 px-4 border-b">987-654-3210</td>
+                                <td class="py-2 px-4 border-b">
+                                    <button onclick="toggleEditTeacherForm()" class="bg-yellow-500 text-white py-1 px-2 rounded-md">Edit</button>
+                                    <button class="bg-red-500 text-white py-1 px-2 rounded-md">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Repeat for each teacher -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Assign Classes -->
+                <div id="assign-classes" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Assign Classes</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Teacher Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Class</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Class">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Subject</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Subject">
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Assign Class</button>
+                    </form>
+                </div>
+
+                <!-- Performance Tracking -->
+                <div id="performance-tracking" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Performance Tracking</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Teacher Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Feedback</label>
+                                <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Feedback"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Track Performance</button>
+                    </form>
+                </div>
+
+                <!-- Leave Management -->
+                <div id="leave-management" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Leave Management</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Teacher Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Leave Date</label>
+                                <input type="date" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Reason</label>
+                                <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Reason for Leave"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Approve/Reject Leave</button>
+                    </form>
+                </div>
+
+                <!-- Communications -->
+                <div id="communications" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Communications</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Teacher Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Message</label>
+                                <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Send Notice</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

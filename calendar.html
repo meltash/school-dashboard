@@ -1,0 +1,254 @@
+<html>
+<head>
+    <title>Manage Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function toggleAddEventForm() {
+            var form = document.getElementById("add-event-form");
+            form.classList.toggle("hidden");
+        }
+
+        function toggleEditEventForm(eventName, eventDate, eventTime, eventDescription) {
+            var form = document.getElementById("edit-event-form");
+            form.classList.toggle("hidden");
+
+            document.getElementById("edit-event-name").value = eventName;
+            document.getElementById("edit-event-date").value = eventDate;
+            document.getElementById("edit-event-time").value = eventTime;
+            document.getElementById("edit-event-description").value = eventDescription;
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white h-screen shadow-md">
+            <div class="p-6">
+                <h1 class="text-lg font-bold">School Management</h1>
+                <nav class="mt-6">
+                    <a href="#" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a>
+                    <a href="index.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-user-graduate mr-3"></i> Students
+                    </a>
+                    <a href="teachers.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chalkboard-teacher mr-3"></i> Teachers
+                    </a>
+                    <a href="classes.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-book mr-3"></i> Classes
+                    </a>
+                    <a href="calendar.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-calendar-alt mr-3"></i> Calendar
+                    </a>
+                    <a href="reports.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chart-line mr-3"></i> Reports
+                    </a>
+                    <a href="settings.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-cog mr-3"></i> Settings
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Manage Calendar</h1>
+                <button class="bg-red-600 text-white py-2 px-4 rounded-md">Logout</button>
+            </div>
+            <p class="text-gray-600">Manage school events and schedules</p>
+
+            <!-- Add Event Button -->
+            <div class="mt-6">
+                <button onclick="toggleAddEventForm()" class="bg-blue-600 text-white py-2 px-4 rounded-md">Add Event</button>
+            </div>
+
+            <!-- Add Event Form -->
+            <div id="add-event-form" class="mt-6 bg-white p-6 rounded-lg shadow-md hidden">
+                <h2 class="text-2xl font-bold text-gray-900">Add Event</h2>
+                <form class="mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700">Event Name</label>
+                            <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Event Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Date</label>
+                            <input type="date" class="w-full mt-1 p-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Time</label>
+                            <input type="time" class="w-full mt-1 p-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Description</label>
+                            <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Event Description"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Add Event</button>
+                </form>
+            </div>
+
+            <!-- Edit Event Form -->
+            <div id="edit-event-form" class="mt-6 bg-white p-6 rounded-lg shadow-md hidden">
+                <h2 class="text-2xl font-bold text-gray-900">Edit Event</h2>
+                <form class="mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700">Event Name</label>
+                            <input type="text" id="edit-event-name" class="w-full mt-1 p-2 border rounded-md" placeholder="Event Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Date</label>
+                            <input type="date" id="edit-event-date" class="w-full mt-1 p-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Time</label>
+                            <input type="time" id="edit-event-time" class="w-full mt-1 p-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700">Description</label>
+                            <textarea id="edit-event-description" class="w-full mt-1 p-2 border rounded-md" placeholder="Event Description"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Content Section -->
+            <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+                <!-- School Events -->
+                <div id="school-events" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">School Events</h2>
+                    <table class="min-w-full bg-white mt-4">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b">Event Name</th>
+                                <th class="py-2 px-4 border-b">Date</th>
+                                <th class="py-2 px-4 border-b">Time</th>
+                                <th class="py-2 px-4 border-b">Description</th>
+                                <th class="py-2 px-4 border-b">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b">Parent-Teacher Meeting</td>
+                                <td class="py-2 px-4 border-b">2023-10-15</td>
+                                <td class="py-2 px-4 border-b">10:00 AM</td>
+                                <td class="py-2 px-4 border-b">Meeting with parents to discuss student progress</td>
+                                <td class="py-2 px-4 border-b">
+                                    <button onclick="toggleEditEventForm('Parent-Teacher Meeting', '2023-10-15', '10:00 AM', 'Meeting with parents to discuss student progress')" class="bg-yellow-500 text-white py-1 px-2 rounded-md">Edit</button>
+                                    <button class="bg-red-500 text-white py-1 px-2 rounded-md">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- Repeat for each event -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Reminders -->
+                <div id="reminders" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Reminders</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Reminder Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Reminder Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Date</label>
+                                <input type="date" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Time</label>
+                                <input type="time" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Description</label>
+                                <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Reminder Description"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Set Reminder</button>
+                    </form>
+                </div>
+
+                <!-- Class Timetables -->
+                <div id="class-timetables" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Class Timetables</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Class Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Class Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Day</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Day">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Time</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Time">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Subject</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Subject">
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Create Timetable</button>
+                    </form>
+                </div>
+
+                <!-- Exam Calendar -->
+                <div id="exam-calendar" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Exam Calendar</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Class Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Class Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Subject</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Subject">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Date</label>
+                                <input type="date" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Time</label>
+                                <input type="time" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Schedule Exam</button>
+                    </form>
+                </div>
+
+                <!-- Teacher Leave Calendar -->
+                <div id="teacher-leave-calendar" class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Teacher Leave Calendar</h2>
+                    <form class="mt-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700">Teacher Name</label>
+                                <input type="text" class="w-full mt-1 p-2 border rounded-md" placeholder="Teacher Name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Leave Date</label>
+                                <input type="date" class="w-full mt-1 p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">Reason</label>
+                                <textarea class="w-full mt-1 p-2 border rounded-md" placeholder="Reason for Leave"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md">Approve/Reject Leave</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

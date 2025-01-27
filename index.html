@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>School Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white h-screen shadow-md">
+            <div class="p-6">
+                <h1 class="text-lg font-bold">School Management</h1>
+                <nav class="mt-6">
+                    <a href="index.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a>
+                    <a href="students.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-user-graduate mr-3"></i> Students
+                    </a>
+                    <a href="teachers.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chalkboard-teacher mr-3"></i> Teachers
+                    </a>
+                    <a href="classes.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-book mr-3"></i> Classes
+                    </a>
+                    <a href="calendar.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-calendar-alt mr-3"></i> Calendar
+                    </a>
+                    <a href="reports.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-chart-line mr-3"></i> Reports
+                    </a>
+                    <a href="settings.html" class="flex items-center py-2 text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-cog mr-3"></i> Settings
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">School Dashboard</h1>
+                <button class="bg-red-600 text-white py-2 px-4 rounded-md">Logout</button>
+            </div>
+            <p class="text-gray-600">Welcome back, Admin</p>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-gray-600">Total Students</h2>
+                    <div class="text-3xl font-bold text-gray-900">1234</div>
+                    <p class="text-green-500">+12% from last month</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-gray-600">Total Teachers</h2>
+                    <div class="text-3xl font-bold text-gray-900">64</div>
+                    <p class="text-gray-500">Active faculty members</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-gray-600">Active Classes</h2>
+                    <div class="text-3xl font-bold text-gray-900">32</div>
+                    <p class="text-gray-500">Across all grades</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-gray-600">Attendance Rate</h2>
+                    <div class="text-3xl font-bold text-gray-900">95%</div>
+                    <p class="text-gray-500">Last 30 days average</p>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                <h2 class="text-xl font-bold text-gray-900"><i class="fas fa-chart-line mr-2"></i> Recent Activities</h2>
+                <ul class="mt-4">
+                    <li class="flex items-start mb-4">
+                        <span class="bg-blue-500 h-2 w-2 rounded-full mt-1 mr-3"></span>
+                        <div>
+                            <p class="text-gray-900">New student enrollment: John Doe</p>
+                            <p class="text-gray-500 text-sm">about 2 hours ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mb-4">
+                        <span class="bg-blue-500 h-2 w-2 rounded-full mt-1 mr-3"></span>
+                        <div>
+                            <p class="text-gray-900">Attendance updated for Class 10-A</p>
+                            <p class="text-gray-500 text-sm">about 3 hours ago</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mb-4">
+                        <span class="bg-blue-500 h-2 w-2 rounded-full mt-1 mr-3"></span>
+                        <div>
+                            <p class="text-gray-900">New assignment posted in Mathematics</p>
+                            <p class="text-gray-500 text-sm">about 5 hours ago</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
